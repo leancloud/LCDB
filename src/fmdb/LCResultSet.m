@@ -11,7 +11,7 @@
 @synthesize query=_query;
 @synthesize statement=_statement;
 
-+ (instancetype)resultSetWithStatement:(FMStatement *)statement usingParentDatabase:(LCDatabase*)aDB {
++ (instancetype)resultSetWithStatement:(LCStatement *)statement usingParentDatabase:(LCDatabase*)aDB {
     
     LCResultSet *rs = [[LCResultSet alloc] init];
     

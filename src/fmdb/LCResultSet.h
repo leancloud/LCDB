@@ -14,7 +14,7 @@
 #endif
 
 @class LCDatabase;
-@class FMStatement;
+@class LCStatement;
 
 /** Represents the results of executing a query on an `<FMDatabase>`.
  
@@ -25,7 +25,7 @@
 
 @interface LCResultSet : NSObject {
     LCDatabase          *_parentDB;
-    FMStatement         *_statement;
+    LCStatement         *_statement;
     
     NSString            *_query;
     NSMutableDictionary *_columnNameToIndexMap;
@@ -45,7 +45,7 @@
 
 /** `FMStatement` used by result set. */
 
-@property (atomic, retain) FMStatement *statement;
+@property (atomic, retain) LCStatement *statement;
 
 ///------------------------------------
 /// @name Creating and closing database
@@ -60,7 +60,7 @@
  @return A `FMResultSet` on success; `nil` on failure
  */
 
-+ (instancetype)resultSetWithStatement:(FMStatement *)statement usingParentDatabase:(LCDatabase*)aDB;
++ (instancetype)resultSetWithStatement:(LCStatement *)statement usingParentDatabase:(LCDatabase*)aDB;
 
 /** Close result set */
 

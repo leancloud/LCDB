@@ -1035,7 +1035,7 @@ typedef int(^FMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDictionary
  - [`sqlite3_stmt`](http://www.sqlite.org/c3ref/stmt.html)
  */
 
-@interface FMStatement : NSObject {
+@interface LCStatement : NSObject {
     sqlite3_stmt *_statement;
     NSString *_query;
     long _useCount;
