@@ -23,7 +23,7 @@
  - `<FMDatabase>`
  */
 
-@interface FMResultSet : NSObject {
+@interface LCResultSet : NSObject {
     LCDatabase          *_parentDB;
     FMStatement         *_statement;
     

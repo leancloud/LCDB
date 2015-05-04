@@ -1,19 +1,19 @@
-#import "FMResultSet.h"
+#import "LCResultSet.h"
 #import "LCDatabase.h"
 #import "unistd.h"
 
 @interface LCDatabase ()
-- (void)resultSetDidClose:(FMResultSet *)resultSet;
+- (void)resultSetDidClose:(LCResultSet *)resultSet;
 @end
 
 
-@implementation FMResultSet
+@implementation LCResultSet
 @synthesize query=_query;
 @synthesize statement=_statement;
 
 + (instancetype)resultSetWithStatement:(FMStatement *)statement usingParentDatabase:(LCDatabase*)aDB {
     
-    FMResultSet *rs = [[FMResultSet alloc] init];
+    LCResultSet *rs = [[LCResultSet alloc] init];
     
     [rs setStatement:statement];
     [rs setParentDB:aDB];

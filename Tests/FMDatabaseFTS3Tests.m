@@ -44,7 +44,7 @@ static id<FMTokenizerDelegate> g_testTok = nil;
 
 - (void)testOffsets
 {
-    FMResultSet *results = [self.db executeQuery:@"SELECT offsets(mail) FROM mail WHERE mail MATCH 'world'"];
+    LCResultSet *results = [self.db executeQuery:@"SELECT offsets(mail) FROM mail WHERE mail MATCH 'world'"];
     
     if ([results next]) {
         FMTextOffsets *offsets = [results offsetsForColumnIndex:0];
@@ -76,7 +76,7 @@ static id<FMTokenizerDelegate> g_testTok = nil;
     ok = [self.db executeUpdate:@"INSERT INTO simple VALUES(?)", text];
     XCTAssertTrue(ok, @"Failed to insert data: %@", [self.db lastErrorMessage]);
     
-    FMResultSet *results = [self.db executeQuery:@"SELECT * FROM simple WHERE simple MATCH ?", @"Queensrÿche"];
+    LCResultSet *results = [self.db executeQuery:@"SELECT * FROM simple WHERE simple MATCH ?", @"Queensrÿche"];
     XCTAssertTrue([results next], @"Failed to find result");
 }
 

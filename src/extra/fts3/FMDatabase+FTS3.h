@@ -97,7 +97,7 @@ typedef struct FMTokenizerCursor
 /**
  A category that adds support for the encoded data returned by FTS3 functions.
  */
-@interface FMResultSet (FTS3)
+@interface LCResultSet (FTS3)
 
 /**
  Returns a structure containing values from the `offsets()` function. Make sure the column index corresponds

@@ -141,7 +141,7 @@
  @see [SQLite File Format](http://www.sqlite.org/fileformat.html)
  */
 
-- (FMResultSet*)getSchema;
+- (LCResultSet*)getSchema;
 
 /** The schema of the database.
 
@@ -165,7 +165,7 @@
  @see [table_info](http://www.sqlite.org/pragma.html#pragma_table_info)
  */
 
-- (FMResultSet*)getTableSchema:(NSString*)tableName;
+- (LCResultSet*)getTableSchema:(NSString*)tableName;
 
 /** Test to see if particular column exists for particular table in database
  

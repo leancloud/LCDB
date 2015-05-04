@@ -210,7 +210,7 @@ static const sqlite3_tokenizer_module FMDBTokenizerModule =
     const sqlite3_tokenizer_module *module = &FMDBTokenizerModule;
     NSData *tokenizerData = [NSData dataWithBytes:&module  length:sizeof(module)];
     
-    FMResultSet *results = [self executeQuery:@"SELECT fts3_tokenizer(?, ?)", name, tokenizerData];
+    LCResultSet *results = [self executeQuery:@"SELECT fts3_tokenizer(?, ?)", name, tokenizerData];
     
     if ([results next]) {
         [results close];
@@ -265,7 +265,7 @@ static const sqlite3_tokenizer_module FMDBTokenizerModule =
 
 @end
 
-@implementation FMResultSet (FTS3)
+@implementation LCResultSet (FTS3)
 
 - (FMTextOffsets *)offsetsForColumnIndex:(int)columnIdx
 {

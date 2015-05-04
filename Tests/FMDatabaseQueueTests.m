@@ -45,7 +45,7 @@
 {
     [self.queue inDatabase:^(LCDatabase *adb) {
         int count = 0;
-        FMResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
+        LCResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
         while ([rsl next]) {
             count++;
         }
@@ -69,7 +69,7 @@
 
     {
         [queue2 inDatabase:^(LCDatabase *db2) {
-            FMResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM qfoo"];
+            LCResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM qfoo"];
             XCTAssertNotNil(rs1);
 
             [rs1 close];
@@ -81,7 +81,7 @@
         
         // Check that when we re-open the database, it's still read-only
         [queue2 inDatabase:^(LCDatabase *db2) {
-            FMResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM qfoo"];
+            LCResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM qfoo"];
             XCTAssertNotNil(rs1);
             
             [rs1 close];
@@ -104,7 +104,7 @@
             [NSThread sleepForTimeInterval:.01];
             
             [self.queue inTransaction:^(LCDatabase *adb, BOOL *rollback) {
-                FMResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
+                LCResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
                 while ([rsl next]) {
                     ;// whatever.
                 }
@@ -138,7 +138,7 @@
         XCTAssertTrue([adb executeUpdate:@"insert into transtest values (2)"]);
         
         int rowCount = 0;
-        FMResultSet *ars = [adb executeQuery:@"select * from transtest"];
+        LCResultSet *ars = [adb executeQuery:@"select * from transtest"];
         while ([ars next]) {
             rowCount++;
         }
@@ -161,7 +161,7 @@
     [self.queue inDatabase:^(LCDatabase *adb) {
         
         int rowCount = 0;
-        FMResultSet *ars = [adb executeQuery:@"select * from transtest"];
+        LCResultSet *ars = [adb executeQuery:@"select * from transtest"];
         while ([ars next]) {
             rowCount++;
         }

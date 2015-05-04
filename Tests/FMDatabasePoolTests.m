@@ -91,7 +91,7 @@
         XCTAssertTrue(([aDb executeUpdate:@"insert into easy (a) values (?)", @"hi"]));
         
         // just for fun.
-        FMResultSet *rs = [aDb executeQuery:@"select * from easy"];
+        LCResultSet *rs = [aDb executeQuery:@"select * from easy"];
         XCTAssertNotNil(rs);
         XCTAssertTrue([rs next]);
         while ([rs next]) { ; } // whatevers.
@@ -139,7 +139,7 @@
 - (void)testSelect
 {
     [self.pool inDatabase:^(LCDatabase *db) {
-        FMResultSet *rs = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1001]];
+        LCResultSet *rs = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1001]];
         XCTAssertNotNil(rs);
         XCTAssertTrue ([rs next]);
         XCTAssertFalse([rs next]);
@@ -190,7 +190,7 @@
     XCTAssertNil(err);
     
     [self.pool inDatabase:^(LCDatabase *db) {
-        FMResultSet *rs = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1009]];
+        LCResultSet *rs = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1009]];
         XCTAssertTrue ([rs next]);
         XCTAssertFalse([rs next]); // close it out.
         
@@ -203,7 +203,7 @@
 {
     [self.pool inDatabase:^(LCDatabase *db) {
         int count = 0;
-        FMResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
+        LCResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
         while ([rsl next]) {
             count++;
         }
@@ -236,7 +236,7 @@
         }
         
         [self.pool inDatabase:^(LCDatabase *db) {
-            FMResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
+            LCResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
             XCTAssertNotNil(rsl);
             int i = 0;
             while ([rsl next]) {
@@ -272,7 +272,7 @@
             [NSThread sleepForTimeInterval:.01];
             
             [self.pool inTransaction:^(LCDatabase *db, BOOL *rollback) {
-                FMResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
+                LCResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
                 XCTAssertNotNil(rsl);
                 while ([rsl next]) {
                     ;// whatever.

@@ -75,7 +75,7 @@ int main (int argc, const char * argv[]) {
     
     
     // how do we do pragmas?  Like so:
-    FMResultSet *ps = [db executeQuery:@"pragma journal_mode=delete"];
+    LCResultSet *ps = [db executeQuery:@"pragma journal_mode=delete"];
     FMDBQuickCheck(![db hadError]);
     FMDBQuickCheck(ps);
     FMDBQuickCheck([ps next]);
@@ -126,7 +126,7 @@ int main (int argc, const char * argv[]) {
     
     
     
-    FMResultSet *rs = [db executeQuery:@"select rowid,* from test where a = ?", @"hi'"];
+    LCResultSet *rs = [db executeQuery:@"select rowid,* from test where a = ?", @"hi'"];
     while ([rs next]) {
         // just print out what we've got in a number of formats.
         NSLog(@"%d %@ %@ %@ %@ %f %f",
@@ -446,7 +446,7 @@ int main (int argc, const char * argv[]) {
         [db executeUpdate:@"update t3 set a = ? where a = ?" , [NSNumber numberWithInt:newVal], [NSNumber numberWithInt:foo]];
         
         
-        FMResultSet *rs2 = [db executeQuery:@"select a from t3 where a = ?", [NSNumber numberWithInt:newVal]];
+        LCResultSet *rs2 = [db executeQuery:@"select a from t3 where a = ?", [NSNumber numberWithInt:newVal]];
         [rs2 next];
         
         if ([rs2 intForColumnIndex:0] != newVal) {
@@ -878,7 +878,7 @@ int main (int argc, const char * argv[]) {
             
             
             int count = 0;
-            FMResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
+            LCResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
             while ([rsl next]) {
                 count++;
             }
@@ -901,7 +901,7 @@ int main (int argc, const char * argv[]) {
     FMDBQuickCheck(queue2);
     {
         [queue2 inDatabase:^(LCDatabase *db2) {
-            FMResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM test"];
+            LCResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM test"];
             FMDBQuickCheck(rs1 != nil);
             [rs1 close];
             
@@ -912,7 +912,7 @@ int main (int argc, const char * argv[]) {
         [queue2 close];
         
         [queue2 inDatabase:^(LCDatabase *db2) {
-            FMResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM test"];
+            LCResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM test"];
             FMDBQuickCheck(rs1 != nil);
             [rs1 close];
             
@@ -936,7 +936,7 @@ int main (int argc, const char * argv[]) {
                 [queue inTransaction:^(LCDatabase *adb, BOOL *rollback) {
                     NSLog(@"Starting query  %ld", nby);
                     
-                    FMResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
+                    LCResultSet *rsl = [adb executeQuery:@"select * from qfoo where foo like 'h%'"];
                     while ([rsl next]) {
                         ;// whatever.
                     }
@@ -973,7 +973,7 @@ int main (int argc, const char * argv[]) {
             [adb executeUpdate:@"create table colNameTest (a, b, c, d)"];
             FMDBQuickCheck([adb executeUpdate:@"insert into colNameTest values (1, 2, 3, 4)"]);
             
-            FMResultSet *ars = [adb executeQuery:@"select * from colNameTest"];
+            LCResultSet *ars = [adb executeQuery:@"select * from colNameTest"];
             
             NSDictionary *d = [ars columnNameToIndexMap];
             FMDBQuickCheck([d count] == 4);
@@ -997,7 +997,7 @@ int main (int argc, const char * argv[]) {
             FMDBQuickCheck([adb executeUpdate:@"insert into transtest values (2)"]);
             
             int rowCount = 0;
-            FMResultSet *ars = [adb executeQuery:@"select * from transtest"];
+            LCResultSet *ars = [adb executeQuery:@"select * from transtest"];
             while ([ars next]) {
                 rowCount++;
             }
@@ -1022,7 +1022,7 @@ int main (int argc, const char * argv[]) {
         [queue inDatabase:^(LCDatabase *adb) {
         
             int rowCount = 0;
-            FMResultSet *ars = [adb executeQuery:@"select * from transtest"];
+            LCResultSet *ars = [adb executeQuery:@"select * from transtest"];
             while ([ars next]) {
                 rowCount++;
             }
@@ -1064,7 +1064,7 @@ int main (int argc, const char * argv[]) {
         }];
         
         int rowCount = 0;
-        FMResultSet *ars = [adb executeQuery:@"select * from ftest where StringStartsWithH(foo)"];
+        LCResultSet *ars = [adb executeQuery:@"select * from ftest where StringStartsWithH(foo)"];
         while ([ars next]) {
             rowCount++;
             
@@ -1108,13 +1108,13 @@ void testStatementCaching() {
     //  the second time through all statements come from the cache.
     for (int i = 1; i <= 2; i++ ) {
         
-        FMResultSet* rs1 = [db executeQuery: @"SELECT rowid, * FROM testStatementCaching WHERE value = ?", @1]; // results in 2 rows...
+        LCResultSet* rs1 = [db executeQuery: @"SELECT rowid, * FROM testStatementCaching WHERE value = ?", @1]; // results in 2 rows...
         FMDBQuickCheck([rs1 next]);
         
         // confirm that we're seeing the benefits of caching.
         FMDBQuickCheck([[rs1 statement] useCount] == i);
         
-        FMResultSet* rs2 = [db executeQuery:@"SELECT rowid, * FROM testStatementCaching WHERE value = ?", @2]; // results in 1 row
+        LCResultSet* rs2 = [db executeQuery:@"SELECT rowid, * FROM testStatementCaching WHERE value = ?", @2]; // results in 1 row
         FMDBQuickCheck([rs2 next]);
         FMDBQuickCheck([[rs2 statement] useCount] == i);
         
@@ -1192,7 +1192,7 @@ void testPool(NSString *dbPath) {
         FMDBQuickCheck(([aDb executeUpdate:@"insert into easy (a) values (?)", @"hi"]));
         
         // just for fun.
-        FMResultSet *rs2 = [aDb executeQuery:@"select * from easy"];
+        LCResultSet *rs2 = [aDb executeQuery:@"select * from easy"];
         FMDBQuickCheck([rs2 next]);
         while ([rs2 next]) { ; } // whatevers.
         
@@ -1265,7 +1265,7 @@ void testPool(NSString *dbPath) {
     
     
     [dbPool inDatabase:^(LCDatabase *db) {
-        FMResultSet *rs2 = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1001]];
+        LCResultSet *rs2 = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1001]];
         FMDBQuickCheck([rs2 next]);
         FMDBQuickCheck(![rs2 next]);
     }];
@@ -1307,7 +1307,7 @@ void testPool(NSString *dbPath) {
         [dbPool inDatabase:^(LCDatabase *db) {
             
             
-            FMResultSet *rs2 = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1009]];
+            LCResultSet *rs2 = [db executeQuery:@"select * from easy where a = ?", [NSNumber numberWithInt:1009]];
             FMDBQuickCheck([rs2 next]);
             FMDBQuickCheck(![rs2 next]); // close it out.
             
@@ -1327,7 +1327,7 @@ void testPool(NSString *dbPath) {
             [db executeUpdate:@"insert into likefoo values ('not')"];
             
             int count = 0;
-            FMResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
+            LCResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
             while ([rsl next]) {
                 count++;
             }
@@ -1363,7 +1363,7 @@ void testPool(NSString *dbPath) {
             [dbPool inDatabase:^(LCDatabase *db) {
                 NSLog(@"Starting query  %ld", nby);
                 
-                FMResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
+                LCResultSet *rsl = [db executeQuery:@"select * from likefoo where foo like 'h%'"];
                 while ([rsl next]) {
                     if (nby % 3 == 1) {
                         [NSThread sleepForTimeInterval:.05];
@@ -1382,7 +1382,7 @@ void testPool(NSString *dbPath) {
     FMDBQuickCheck(dbPool2);
     {
         [dbPool2 inDatabase:^(LCDatabase *db2) {
-            FMResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM test"];
+            LCResultSet *rs1 = [db2 executeQuery:@"SELECT * FROM test"];
             FMDBQuickCheck(rs1 != nil);
             [rs1 close];
             
@@ -1452,7 +1452,7 @@ void testOneDateFormat( LCDatabase *db, NSDate *testDate ) {
     [db executeUpdate:@"DROP TABLE IF EXISTS test_format"];
     [db executeUpdate:@"CREATE TABLE test_format ( test TEXT )"];
     [db executeUpdate:@"INSERT INTO test_format(test) VALUES (?)", testDate];
-    FMResultSet *rs = [db executeQuery:@"SELECT test FROM test_format"];
+    LCResultSet *rs = [db executeQuery:@"SELECT test FROM test_format"];
     if ([rs next]) {
         NSDate *found = [rs dateForColumnIndex:0];
         if (NSOrderedSame != [testDate compare:found]) {
@@ -1516,7 +1516,7 @@ void FMDBReportABugFunction() {
         worked = [db executeUpdate:@"insert into test values ('a', 'b', 1, 2.2, 2.3)"];
         FMDBQuickCheck(worked);
         
-        FMResultSet *rs = [db executeQuery:@"select * from test"];
+        LCResultSet *rs = [db executeQuery:@"select * from test"];
         FMDBQuickCheck([rs next]);
         [rs close];
         
