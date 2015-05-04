@@ -8,7 +8,7 @@
 
 #import "FMDBTempDBTests.h"
 #import "LCDatabase.h"
-#import "FMDatabaseAdditions.h"
+#import "LCDatabaseAdditions.h"
 
 @interface FMDatabaseTests : FMDBTempDBTests
 

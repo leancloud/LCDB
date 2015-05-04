@@ -17,7 +17,7 @@
  - `<FMDatabase>`
  */
 
-@interface LCDatabase (FMDatabaseAdditions)
+@interface LCDatabase (LCDatabaseAdditions)
 
 ///----------------------------------------
 /// @name Return results of SQL to variable

@@ -1,5 +1,5 @@
 #import "LCDatabase.h"
 #import "LCResultSet.h"
-#import "FMDatabaseAdditions.h"
+#import "LCDatabaseAdditions.h"
 #import "LCDatabaseQueue.h"
 #import "FMDatabasePool.h"
