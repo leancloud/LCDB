@@ -15,7 +15,7 @@
 		621721B61892BFE30006691F /* LCDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* LCDatabasePool.m */; };
 		6290CBB7188FE836009790F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6290CBB6188FE836009790F8 /* Foundation.framework */; };
 		67CB1E3019AD27D000A3CA7F /* FMDatabaseFTS3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CB1E2F19AD27D000A3CA7F /* FMDatabaseFTS3Tests.m */; };
-		8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; };
+		8314AF3318CD73D600EC0E25 /* LCDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* LCDB.h */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* fmdb.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* fmdb.1 */; };
 		BF5D041918416BB2008C5AA9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5D041818416BB2008C5AA9 /* XCTest.framework */; };
@@ -95,7 +95,7 @@
 		6290CBB6188FE836009790F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6290CBC6188FE837009790F8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		67CB1E2F19AD27D000A3CA7F /* FMDatabaseFTS3Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseFTS3Tests.m; sourceTree = "<group>"; };
-		8314AF3218CD73D600EC0E25 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		8314AF3218CD73D600EC0E25 /* LCDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCDB.h; path = src/fmdb/LCDB.h; sourceTree = "<group>"; };
 		831DE6FD175B7C9C001F7317 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		832F502419EC4C6B0087DCBF /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMDatabaseVariadic.swift; path = "src/extra/Swift extensions/FMDatabaseVariadic.swift"; sourceTree = "<group>"; };
 		8352D5AC1A73DCEA003A8E09 /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMDatabaseAdditionsVariadic.swift; path = "src/extra/Swift extensions/FMDatabaseAdditionsVariadic.swift"; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		8314AF3018CD737D00EC0E25 /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
-				8314AF3218CD73D600EC0E25 /* FMDB.h */,
+				8314AF3218CD73D600EC0E25 /* LCDB.h */,
 				CCC24EBA0A13E34D00A6D3E3 /* LCDatabase.h */,
 				CCC24EBB0A13E34D00A6D3E3 /* LCDatabase.m */,
 				CCC24EBF0A13E34D00A6D3E3 /* LCResultSet.h */,
@@ -351,7 +351,7 @@
 				EE42910712B42FC90088BD94 /* LCDatabase.h in Headers */,
 				EE42910612B42FC30088BD94 /* LCDatabaseAdditions.h in Headers */,
 				EE42910912B42FD00088BD94 /* LCResultSet.h in Headers */,
-				8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */,
+				8314AF3318CD73D600EC0E25 /* LCDB.h in Headers */,
 				CC9E4EBA13B31188005F9210 /* LCDatabasePool.h in Headers */,
 				CC47A00F148581E9002CCDAB /* LCDatabaseQueue.h in Headers */,
 			);
