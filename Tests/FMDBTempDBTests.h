@@ -7,18 +7,18 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 
 @protocol FMDBTempDBTests <NSObject>
 
 @optional
-+ (void)populateDatabase:(FMDatabase *)database;
++ (void)populateDatabase:(LCDatabase *)database;
 
 @end
 
 @interface FMDBTempDBTests : XCTestCase <FMDBTempDBTests>
 
-@property FMDatabase *db;
+@property LCDatabase *db;
 @property (readonly) NSString *databasePath;
 
 @end

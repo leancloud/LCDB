@@ -7,7 +7,7 @@
 //
 
 #import "FMDBTempDBTests.h"
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 #import "FMDatabaseAdditions.h"
 
 @interface FMDatabaseTests : FMDBTempDBTests
@@ -16,7 +16,7 @@
 
 @implementation FMDatabaseTests
 
-+ (void)populateDatabase:(FMDatabase *)db
++ (void)populateDatabase:(LCDatabase *)db
 {
     [db executeUpdate:@"create table test (a text, b text, c integer, d double, e double)"];
     
@@ -179,7 +179,7 @@
     
     [self.db setMaxBusyRetryTimeInterval:2];
     
-    FMDatabase *newDB = [FMDatabase databaseWithPath:self.databasePath];
+    LCDatabase *newDB = [LCDatabase databaseWithPath:self.databasePath];
     [newDB open];
     
     FMResultSet *rs = [newDB executeQuery:@"select rowid,* from test where a = ?", @"hi'"];
@@ -615,7 +615,7 @@
     NSFileManager *fileManager = [NSFileManager new];
     [fileManager removeItemAtPath:@"/tmp/attachme.db" error:nil];
     
-    FMDatabase *dbB = [FMDatabase databaseWithPath:@"/tmp/attachme.db"];
+    LCDatabase *dbB = [LCDatabase databaseWithPath:@"/tmp/attachme.db"];
     XCTAssertTrue([dbB open]);
     XCTAssertTrue([dbB executeUpdate:@"create table attached (a text)"]);
     XCTAssertTrue(([dbB executeUpdate:@"insert into attached values (?)", @"test"]));
@@ -733,7 +733,7 @@
 
 - (void)testDateFormat
 {
-    void (^testOneDateFormat)(FMDatabase *, NSDate *) = ^( FMDatabase *db, NSDate *testDate ){
+    void (^testOneDateFormat)(LCDatabase *, NSDate *) = ^( LCDatabase *db, NSDate *testDate ){
         [db executeUpdate:@"DROP TABLE IF EXISTS test_format"];
         [db executeUpdate:@"CREATE TABLE test_format ( test TEXT )"];
         [db executeUpdate:@"INSERT INTO test_format(test) VALUES (?)", testDate];
@@ -747,7 +747,7 @@
         [rs close];
     };
     
-    NSDateFormatter *fmt = [FMDatabase storeableDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *fmt = [LCDatabase storeableDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSDate *testDate = [fmt dateFromString:@"2013-02-20 12:00:00"];
     
@@ -814,7 +814,7 @@
 }
 
 - (void)testVersionNumber {
-    XCTAssertTrue([FMDatabase FMDBVersion] == 0x0250); // this is going to break everytime we bump it.
+    XCTAssertTrue([LCDatabase FMDBVersion] == 0x0250); // this is going to break everytime we bump it.
 }
 
 - (void)testExecuteStatements

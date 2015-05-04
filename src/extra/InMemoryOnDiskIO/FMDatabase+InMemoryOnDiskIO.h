@@ -14,9 +14,9 @@
 //
 //  http://www.sqlite.org/backup.html
 
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 
-@interface FMDatabase (InMemoryOnDiskIO)
+@interface LCDatabase (InMemoryOnDiskIO)
 
 // Loads an on-disk representation into memory.
 - (BOOL)readFromFile:(NSString*)filePath;

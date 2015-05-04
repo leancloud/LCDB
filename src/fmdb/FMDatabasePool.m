@@ -7,12 +7,12 @@
 //
 
 #import "FMDatabasePool.h"
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 
 @interface FMDatabasePool()
 
-- (void)pushDatabaseBackInPool:(FMDatabase*)db;
-- (FMDatabase*)db;
+- (void)pushDatabaseBackInPool:(LCDatabase*)db;
+- (LCDatabase*)db;
 
 @end
 
@@ -79,7 +79,7 @@
     dispatch_sync(_lockQueue, aBlock);
 }
 
-- (void)pushDatabaseBackInPool:(FMDatabase*)db {
+- (void)pushDatabaseBackInPool:(LCDatabase*)db {
     
     if (!db) { // db can be null if we set an upper bound on the # of databases to create.
         return;
@@ -97,9 +97,9 @@
     }];
 }
 
-- (FMDatabase*)db {
+- (LCDatabase*)db {
     
-    __block FMDatabase *db;
+    __block LCDatabase *db;
     
     
     [self executeLocked:^() {
@@ -122,7 +122,7 @@
                 }
             }
             
-            db = [FMDatabase databaseWithPath:self->_path];
+            db = [LCDatabase databaseWithPath:self->_path];
             shouldNotifyDelegate = YES;
         }
         
@@ -196,20 +196,20 @@
     }];
 }
 
-- (void)inDatabase:(void (^)(FMDatabase *db))block {
+- (void)inDatabase:(void (^)(LCDatabase *db))block {
     
-    FMDatabase *db = [self db];
+    LCDatabase *db = [self db];
     
     block(db);
     
     [self pushDatabaseBackInPool:db];
 }
 
-- (void)beginTransaction:(BOOL)useDeferred withBlock:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (void)beginTransaction:(BOOL)useDeferred withBlock:(void (^)(LCDatabase *db, BOOL *rollback))block {
     
     BOOL shouldRollback = NO;
     
-    FMDatabase *db = [self db];
+    LCDatabase *db = [self db];
     
     if (useDeferred) {
         [db beginDeferredTransaction];
@@ -231,15 +231,15 @@
     [self pushDatabaseBackInPool:db];
 }
 
-- (void)inDeferredTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (void)inDeferredTransaction:(void (^)(LCDatabase *db, BOOL *rollback))block {
     [self beginTransaction:YES withBlock:block];
 }
 
-- (void)inTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (void)inTransaction:(void (^)(LCDatabase *db, BOOL *rollback))block {
     [self beginTransaction:NO withBlock:block];
 }
 #if SQLITE_VERSION_NUMBER >= 3007000
-- (NSError*)inSavePoint:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (NSError*)inSavePoint:(void (^)(LCDatabase *db, BOOL *rollback))block {
     
     static unsigned long savePointIdx = 0;
     
@@ -247,7 +247,7 @@
     
     BOOL shouldRollback = NO;
     
-    FMDatabase *db = [self db];
+    LCDatabase *db = [self db];
     
     NSError *err = 0x00;
     

@@ -51,7 +51,7 @@ int loadOrSaveDb(sqlite3 *pInMemory, const char *zFilename, int isSave)
 
 
 
-@implementation FMDatabase (InMemoryOnDiskIO)
+@implementation LCDatabase (InMemoryOnDiskIO)
 
 - (BOOL)readFromFile:(NSString*)filePath
 {

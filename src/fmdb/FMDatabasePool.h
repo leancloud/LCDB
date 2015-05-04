@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 
-@class FMDatabase;
+@class LCDatabase;
 
 /** Pool of `<FMDatabase>` objects.
 
@@ -140,21 +140,21 @@
  @param block The code to be run on the `FMDatabasePool` pool.
  */
 
-- (void)inDatabase:(void (^)(FMDatabase *db))block;
+- (void)inDatabase:(void (^)(LCDatabase *db))block;
 
 /** Synchronously perform database operations in pool using transaction.
 
  @param block The code to be run on the `FMDatabasePool` pool.
  */
 
-- (void)inTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block;
+- (void)inTransaction:(void (^)(LCDatabase *db, BOOL *rollback))block;
 
 /** Synchronously perform database operations in pool using deferred transaction.
 
  @param block The code to be run on the `FMDatabasePool` pool.
  */
 
-- (void)inDeferredTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block;
+- (void)inDeferredTransaction:(void (^)(LCDatabase *db, BOOL *rollback))block;
 
 #if SQLITE_VERSION_NUMBER >= 3007000
 
@@ -167,7 +167,7 @@
  @warning You can not nest these, since calling it will pull another database out of the pool and you'll get a deadlock. If you need to nest, use `<[FMDatabase startSavePointWithName:error:]>` instead.
 */
 
-- (NSError*)inSavePoint:(void (^)(FMDatabase *db, BOOL *rollback))block;
+- (NSError*)inSavePoint:(void (^)(LCDatabase *db, BOOL *rollback))block;
 #endif
 
 @end
@@ -189,7 +189,7 @@
  
  */
 
-- (BOOL)databasePool:(FMDatabasePool*)pool shouldAddDatabaseToPool:(FMDatabase*)database;
+- (BOOL)databasePool:(FMDatabasePool*)pool shouldAddDatabaseToPool:(LCDatabase*)database;
 
 /** Tells the delegate that database was added to the pool.
  
@@ -198,7 +198,7 @@
 
  */
 
-- (void)databasePool:(FMDatabasePool*)pool didAddDatabase:(FMDatabase*)database;
+- (void)databasePool:(FMDatabasePool*)pool didAddDatabase:(LCDatabase*)database;
 
 @end
 

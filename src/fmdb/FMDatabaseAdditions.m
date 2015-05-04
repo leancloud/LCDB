@@ -6,15 +6,15 @@
 //  Copyright 2005 Flying Meat Inc.. All rights reserved.
 //
 
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "TargetConditionals.h"
 
-@interface FMDatabase (PrivateStuff)
+@interface LCDatabase (PrivateStuff)
 - (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 @end
 
-@implementation FMDatabase (FMDatabaseAdditions)
+@implementation LCDatabase (FMDatabaseAdditions)
 
 #define RETURN_RESULT_FOR_QUERY_WITH_SELECTOR(type, sel)             \
 va_list args;                                                        \

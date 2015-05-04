@@ -18,7 +18,7 @@ static id<FMTokenizerDelegate> g_testTok = nil;
 
 @implementation FMDatabaseFTS3Tests
 
-+ (void)populateDatabase:(FMDatabase *)db
++ (void)populateDatabase:(LCDatabase *)db
 {
     [db executeUpdate:@"CREATE VIRTUAL TABLE mail USING fts3(subject, body)"];
     
@@ -27,7 +27,7 @@ static id<FMTokenizerDelegate> g_testTok = nil;
 
     // Create a tokenizer instance that will not be de-allocated when the method finishes.
     g_testTok = [[FMSimpleTokenizer alloc] initWithLocale:NULL];
-    [FMDatabase registerTokenizer:g_testTok withKey:@"testTok"];
+    [LCDatabase registerTokenizer:g_testTok withKey:@"testTok"];
 }
 
 - (void)setUp

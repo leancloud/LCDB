@@ -7,7 +7,7 @@
 //
 
 #import "FMDatabaseQueue.h"
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 
 /*
  
@@ -48,7 +48,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
 }
 
 + (Class)databaseClass {
-    return [FMDatabase class];
+    return [LCDatabase class];
 }
 
 - (instancetype)initWithPath:(NSString*)aPath flags:(int)openFlags {
@@ -116,9 +116,9 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     FMDBRelease(self);
 }
 
-- (FMDatabase*)database {
+- (LCDatabase*)database {
     if (!_db) {
-        _db = FMDBReturnRetained([FMDatabase databaseWithPath:_path]);
+        _db = FMDBReturnRetained([LCDatabase databaseWithPath:_path]);
         
 #if SQLITE_VERSION_NUMBER >= 3005000
         BOOL success = [_db openWithFlags:_openFlags];
@@ -136,7 +136,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     return _db;
 }
 
-- (void)inDatabase:(void (^)(FMDatabase *db))block {
+- (void)inDatabase:(void (^)(LCDatabase *db))block {
     /* Get the currently executing queue (which should probably be nil, but in theory could be another DB queue
      * and then check it against self to make sure we're not about to deadlock. */
     FMDatabaseQueue *currentSyncQueue = (__bridge id)dispatch_get_specific(kDispatchQueueSpecificKey);
@@ -146,7 +146,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     
     dispatch_sync(_queue, ^() {
         
-        FMDatabase *db = [self database];
+        LCDatabase *db = [self database];
         block(db);
         
         if ([db hasOpenResultSets]) {
@@ -166,7 +166,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
 }
 
 
-- (void)beginTransaction:(BOOL)useDeferred withBlock:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (void)beginTransaction:(BOOL)useDeferred withBlock:(void (^)(LCDatabase *db, BOOL *rollback))block {
     FMDBRetain(self);
     dispatch_sync(_queue, ^() { 
         
@@ -192,16 +192,16 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     FMDBRelease(self);
 }
 
-- (void)inDeferredTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (void)inDeferredTransaction:(void (^)(LCDatabase *db, BOOL *rollback))block {
     [self beginTransaction:YES withBlock:block];
 }
 
-- (void)inTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (void)inTransaction:(void (^)(LCDatabase *db, BOOL *rollback))block {
     [self beginTransaction:NO withBlock:block];
 }
 
 #if SQLITE_VERSION_NUMBER >= 3007000
-- (NSError*)inSavePoint:(void (^)(FMDatabase *db, BOOL *rollback))block {
+- (NSError*)inSavePoint:(void (^)(LCDatabase *db, BOOL *rollback))block {
     
     static unsigned long savePointIdx = 0;
     __block NSError *err = 0x00;

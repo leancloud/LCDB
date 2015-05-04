@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Andrew Goodale. All rights reserved.
 //
 
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 
 /**
  Names of commands that can be issued against an FTS table.
@@ -22,7 +22,7 @@ extern NSString *const kFTSCommandAutoMerge;       // "automerge=%u"
 /**
   This category provides methods to access the FTS3 extensions in SQLite.
  */
-@interface FMDatabase (FTS3)
+@interface LCDatabase (FTS3)
 
 /**
  Register a delegate implementation in the global table. This should be used when using a single tokenizer.

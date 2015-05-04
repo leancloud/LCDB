@@ -71,7 +71,7 @@ typedef int(^FMDBExecuteStatementsCallbackBlock)(NSDictionary *resultsDictionary
 #pragma clang diagnostic ignored "-Wobjc-interface-ivars"
 
 
-@interface FMDatabase : NSObject  {
+@interface LCDatabase : NSObject  {
     
     sqlite3*            _db;
     NSString*           _databasePath;

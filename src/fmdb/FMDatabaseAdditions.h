@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 
 
 /** Category of additions for `<FMDatabase>` class.
@@ -17,7 +17,7 @@
  - `<FMDatabase>`
  */
 
-@interface FMDatabase (FMDatabaseAdditions)
+@interface LCDatabase (FMDatabaseAdditions)
 
 ///----------------------------------------
 /// @name Return results of SQL to variable

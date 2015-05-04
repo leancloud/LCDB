@@ -1,15 +1,15 @@
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 #import "unistd.h"
 #import <objc/runtime.h>
 
-@interface FMDatabase ()
+@interface LCDatabase ()
 
 - (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 - (BOOL)executeUpdate:(NSString*)sql error:(NSError**)outErr withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 
 @end
 
-@implementation FMDatabase
+@implementation LCDatabase
 @synthesize cachedStatements=_cachedStatements;
 @synthesize logsErrors=_logsErrors;
 @synthesize crashOnErrors=_crashOnErrors;
@@ -221,7 +221,7 @@
 //       files with appledoc will prevent this problem from occurring.
 
 static int FMDBDatabaseBusyHandler(void *f, int count) {
-    FMDatabase *self = (__bridge FMDatabase*)f;
+    LCDatabase *self = (__bridge LCDatabase*)f;
     
     if (count == 0) {
         self->_startBusyRetryTime = [NSDate timeIntervalSinceReferenceDate];
@@ -488,7 +488,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 - (NSError*)errorWithMessage:(NSString*)message {
     NSDictionary* errorMessage = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
     
-    return [NSError errorWithDomain:@"FMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
+    return [NSError errorWithDomain:@"LCDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
 }
 
 - (NSError*)lastError {

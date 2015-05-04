@@ -183,7 +183,7 @@ static const sqlite3_tokenizer_module FMDBTokenizerModule =
 
 #pragma mark
 
-@implementation FMDatabase (FTS3)
+@implementation LCDatabase (FTS3)
 
 + (void)registerTokenizer:(id<FMTokenizerDelegate>)tokenizer withKey:(NSString *)key
 {

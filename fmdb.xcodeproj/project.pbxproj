@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3354379C19E71096005661F3 /* FMResultSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3354379B19E71096005661F3 /* FMResultSetTests.m */; };
-		621721B21892BFE30006691F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
+		621721B21892BFE30006691F /* LCDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* LCDatabase.m */; };
 		621721B31892BFE30006691F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
 		621721B41892BFE30006691F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* FMDatabaseQueue.m */; };
 		621721B51892BFE30006691F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
@@ -42,14 +42,14 @@
 		CCA66A3019C0CB1900EFDAC1 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA66A2B19C0CB1900EFDAC1 /* FMTokenizers.m */; };
 		CCBE26C113B3BA8C006F6C37 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBE26C013B3BA8C006F6C37 /* AppKit.framework */; };
 		CCBEBDAC0DF5DE1A003DDD08 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBEBDAB0DF5DE1A003DDD08 /* libsqlite3.dylib */; };
-		CCC24EC20A13E34D00A6D3E3 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
+		CCC24EC20A13E34D00A6D3E3 /* LCDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* LCDatabase.m */; };
 		CCC24EC50A13E34D00A6D3E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBE0A13E34D00A6D3E3 /* main.m */; };
 		CCC24EC70A13E34D00A6D3E3 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
 		D4A740A21A7046330058EBEE /* FMDatabaseFTS3WithModuleNameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A740A11A7046330058EBEE /* FMDatabaseFTS3WithModuleNameTests.m */; };
 		EE42910512B42FBC0088BD94 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
 		EE42910612B42FC30088BD94 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; };
-		EE42910712B42FC90088BD94 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE42910812B42FCC0088BD94 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
+		EE42910712B42FC90088BD94 /* LCDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* LCDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE42910812B42FCC0088BD94 /* LCDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* LCDatabase.m */; };
 		EE42910912B42FD00088BD94 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE42910A12B42FD20088BD94 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
 		EE42910D12B42FFA0088BD94 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE42910C12B42FFA0088BD94 /* libsqlite3.dylib */; };
@@ -130,8 +130,8 @@
 		CCA66A2C19C0CB1900EFDAC1 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fts3_tokenizer.h; path = src/extra/fts3/fts3_tokenizer.h; sourceTree = "<group>"; };
 		CCBE26C013B3BA8C006F6C37 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		CCBEBDAB0DF5DE1A003DDD08 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
-		CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = SOURCE_ROOT; };
-		CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = SOURCE_ROOT; };
+		CCC24EBA0A13E34D00A6D3E3 /* LCDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCDatabase.h; path = src/fmdb/LCDatabase.h; sourceTree = SOURCE_ROOT; };
+		CCC24EBB0A13E34D00A6D3E3 /* LCDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCDatabase.m; path = src/fmdb/LCDatabase.m; sourceTree = SOURCE_ROOT; };
 		CCC24EBE0A13E34D00A6D3E3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/sample/main.m; sourceTree = SOURCE_ROOT; };
 		CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = SOURCE_ROOT; };
 		CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = SOURCE_ROOT; };
@@ -245,8 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				8314AF3218CD73D600EC0E25 /* FMDB.h */,
-				CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */,
-				CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */,
+				CCC24EBA0A13E34D00A6D3E3 /* LCDatabase.h */,
+				CCC24EBB0A13E34D00A6D3E3 /* LCDatabase.m */,
 				CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */,
 				CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */,
 				CC47A00D148581E9002CCDAB /* FMDatabaseQueue.h */,
@@ -348,7 +348,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE42910712B42FC90088BD94 /* FMDatabase.h in Headers */,
+				EE42910712B42FC90088BD94 /* LCDatabase.h in Headers */,
 				EE42910612B42FC30088BD94 /* FMDatabaseAdditions.h in Headers */,
 				EE42910912B42FD00088BD94 /* FMResultSet.h in Headers */,
 				8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */,
@@ -483,7 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				621721B31892BFE30006691F /* FMResultSet.m in Sources */,
-				621721B21892BFE30006691F /* FMDatabase.m in Sources */,
+				621721B21892BFE30006691F /* LCDatabase.m in Sources */,
 				621721B61892BFE30006691F /* FMDatabasePool.m in Sources */,
 				621721B41892BFE30006691F /* FMDatabaseQueue.m in Sources */,
 				621721B51892BFE30006691F /* FMDatabaseAdditions.m in Sources */,
@@ -494,7 +494,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC24EC20A13E34D00A6D3E3 /* FMDatabase.m in Sources */,
+				CCC24EC20A13E34D00A6D3E3 /* LCDatabase.m in Sources */,
 				CCA66A2F19C0CB1900EFDAC1 /* FMTokenizers.m in Sources */,
 				CCC24EC50A13E34D00A6D3E3 /* main.m in Sources */,
 				CCC24EC70A13E34D00A6D3E3 /* FMResultSet.m in Sources */,
@@ -528,7 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE42910812B42FCC0088BD94 /* FMDatabase.m in Sources */,
+				EE42910812B42FCC0088BD94 /* LCDatabase.m in Sources */,
 				EE42910512B42FBC0088BD94 /* FMDatabaseAdditions.m in Sources */,
 				EE42910A12B42FD20088BD94 /* FMResultSet.m in Sources */,
 				CC9E4EBB13B31188005F9210 /* FMDatabasePool.m in Sources */,

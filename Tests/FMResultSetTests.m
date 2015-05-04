@@ -7,7 +7,7 @@
 //
 
 #import "FMDBTempDBTests.h"
-#import "FMDatabase.h"
+#import "LCDatabase.h"
 #import "FMResultSet.h"
 
 @interface FMResultSetTests : FMDBTempDBTests
@@ -16,7 +16,7 @@
 
 @implementation FMResultSetTests
 
-+ (void)populateDatabase:(FMDatabase *)db
++ (void)populateDatabase:(LCDatabase *)db
 {
     [db executeUpdate:@"create table test (a text, b text, c integer, d double, e double)"];
     
@@ -60,7 +60,7 @@
     FMResultSet *resultSet = [self.db executeQuery:@"SELECT * FROM testTable WHERE key=1"];
     XCTAssertNotNil(resultSet);
     
-    FMDatabase *newDB = [FMDatabase databaseWithPath:self.databasePath];
+    LCDatabase *newDB = [LCDatabase databaseWithPath:self.databasePath];
     [newDB open];
     
     [newDB beginTransaction];
