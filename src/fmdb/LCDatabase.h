@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 #import "LCResultSet.h"
-#import "FMDatabasePool.h"
+#import "LCDatabasePool.h"
 
 
 #if ! __has_feature(objc_arc)

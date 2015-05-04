@@ -10,7 +10,7 @@
 
 @interface FMDatabasePoolTests : FMDBTempDBTests
 
-@property FMDatabasePool *pool;
+@property LCDatabasePool *pool;
 
 @end
 
@@ -36,7 +36,7 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
-    [self setPool:[FMDatabasePool databasePoolWithPath:self.databasePath]];
+    [self setPool:[LCDatabasePool databasePoolWithPath:self.databasePath]];
     
     [[self pool] setDelegate:self];
     
@@ -253,7 +253,7 @@
 }
 
 
-- (BOOL)databasePool:(FMDatabasePool*)pool shouldAddDatabaseToPool:(LCDatabase*)database {
+- (BOOL)databasePool:(LCDatabasePool*)pool shouldAddDatabaseToPool:(LCDatabase*)database {
     [database setMaxBusyRetryTimeInterval:10];
     // [database setCrashOnErrors:YES];
     return YES;

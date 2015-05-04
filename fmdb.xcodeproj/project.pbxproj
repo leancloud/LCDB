@@ -12,7 +12,7 @@
 		621721B31892BFE30006691F /* LCResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* LCResultSet.m */; };
 		621721B41892BFE30006691F /* LCDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* LCDatabaseQueue.m */; };
 		621721B51892BFE30006691F /* LCDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* LCDatabaseAdditions.m */; };
-		621721B61892BFE30006691F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* FMDatabasePool.m */; };
+		621721B61892BFE30006691F /* LCDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* LCDatabasePool.m */; };
 		6290CBB7188FE836009790F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6290CBB6188FE836009790F8 /* Foundation.framework */; };
 		67CB1E3019AD27D000A3CA7F /* FMDatabaseFTS3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CB1E2F19AD27D000A3CA7F /* FMDatabaseFTS3Tests.m */; };
 		8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; };
@@ -33,9 +33,9 @@
 		CC47A011148581E9002CCDAB /* LCDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* LCDatabaseQueue.m */; };
 		CC50F2CD0DF9183600E4AAAE /* LCDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* LCDatabaseAdditions.m */; };
 		CC7CE42818F5C04600938264 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7CE42718F5C04600938264 /* FMDatabase+InMemoryOnDiskIO.m */; };
-		CC9E4EB913B31188005F9210 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* FMDatabasePool.m */; };
-		CC9E4EBA13B31188005F9210 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* FMDatabasePool.h */; };
-		CC9E4EBB13B31188005F9210 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* FMDatabasePool.m */; };
+		CC9E4EB913B31188005F9210 /* LCDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* LCDatabasePool.m */; };
+		CC9E4EBA13B31188005F9210 /* LCDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* LCDatabasePool.h */; };
+		CC9E4EBB13B31188005F9210 /* LCDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* LCDatabasePool.m */; };
 		CCA66A2D19C0CB1900EFDAC1 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA66A2919C0CB1900EFDAC1 /* FMDatabase+FTS3.m */; };
 		CCA66A2E19C0CB1900EFDAC1 /* FMDatabase+FTS3.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA66A2919C0CB1900EFDAC1 /* FMDatabase+FTS3.m */; };
 		CCA66A2F19C0CB1900EFDAC1 /* FMTokenizers.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA66A2B19C0CB1900EFDAC1 /* FMTokenizers.m */; };
@@ -121,8 +121,8 @@
 		CC8C138A0E3135C400FBE1E7 /* CHANGES_AND_TODO_LIST.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGES_AND_TODO_LIST.txt; sourceTree = "<group>"; };
 		CC8C138B0E3135C400FBE1E7 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		CC8C138C0E3135C400FBE1E7 /* CONTRIBUTORS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CONTRIBUTORS.txt; sourceTree = "<group>"; };
-		CC9E4EB713B31188005F9210 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = SOURCE_ROOT; };
-		CC9E4EB813B31188005F9210 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = SOURCE_ROOT; };
+		CC9E4EB713B31188005F9210 /* LCDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LCDatabasePool.h; path = src/fmdb/LCDatabasePool.h; sourceTree = SOURCE_ROOT; };
+		CC9E4EB813B31188005F9210 /* LCDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LCDatabasePool.m; path = src/fmdb/LCDatabasePool.m; sourceTree = SOURCE_ROOT; };
 		CCA66A2819C0CB1900EFDAC1 /* FMDatabase+FTS3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FMDatabase+FTS3.h"; path = "src/extra/fts3/FMDatabase+FTS3.h"; sourceTree = "<group>"; };
 		CCA66A2919C0CB1900EFDAC1 /* FMDatabase+FTS3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FMDatabase+FTS3.m"; path = "src/extra/fts3/FMDatabase+FTS3.m"; sourceTree = "<group>"; };
 		CCA66A2A19C0CB1900EFDAC1 /* FMTokenizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMTokenizers.h; path = src/extra/fts3/FMTokenizers.h; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 				CC47A00E148581E9002CCDAB /* LCDatabaseQueue.m */,
 				CC50F2CC0DF9183600E4AAAE /* LCDatabaseAdditions.h */,
 				CC50F2CB0DF9183600E4AAAE /* LCDatabaseAdditions.m */,
-				CC9E4EB713B31188005F9210 /* FMDatabasePool.h */,
-				CC9E4EB813B31188005F9210 /* FMDatabasePool.m */,
+				CC9E4EB713B31188005F9210 /* LCDatabasePool.h */,
+				CC9E4EB813B31188005F9210 /* LCDatabasePool.m */,
 			);
 			name = fmdb;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 				EE42910612B42FC30088BD94 /* LCDatabaseAdditions.h in Headers */,
 				EE42910912B42FD00088BD94 /* LCResultSet.h in Headers */,
 				8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */,
-				CC9E4EBA13B31188005F9210 /* FMDatabasePool.h in Headers */,
+				CC9E4EBA13B31188005F9210 /* LCDatabasePool.h in Headers */,
 				CC47A00F148581E9002CCDAB /* LCDatabaseQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +484,7 @@
 			files = (
 				621721B31892BFE30006691F /* LCResultSet.m in Sources */,
 				621721B21892BFE30006691F /* LCDatabase.m in Sources */,
-				621721B61892BFE30006691F /* FMDatabasePool.m in Sources */,
+				621721B61892BFE30006691F /* LCDatabasePool.m in Sources */,
 				621721B41892BFE30006691F /* LCDatabaseQueue.m in Sources */,
 				621721B51892BFE30006691F /* LCDatabaseAdditions.m in Sources */,
 			);
@@ -500,7 +500,7 @@
 				CCC24EC70A13E34D00A6D3E3 /* LCResultSet.m in Sources */,
 				CC7CE42818F5C04600938264 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				CC50F2CD0DF9183600E4AAAE /* LCDatabaseAdditions.m in Sources */,
-				CC9E4EB913B31188005F9210 /* FMDatabasePool.m in Sources */,
+				CC9E4EB913B31188005F9210 /* LCDatabasePool.m in Sources */,
 				CC47A010148581E9002CCDAB /* LCDatabaseQueue.m in Sources */,
 				CCA66A2D19C0CB1900EFDAC1 /* FMDatabase+FTS3.m in Sources */,
 			);
@@ -531,7 +531,7 @@
 				EE42910812B42FCC0088BD94 /* LCDatabase.m in Sources */,
 				EE42910512B42FBC0088BD94 /* LCDatabaseAdditions.m in Sources */,
 				EE42910A12B42FD20088BD94 /* LCResultSet.m in Sources */,
-				CC9E4EBB13B31188005F9210 /* FMDatabasePool.m in Sources */,
+				CC9E4EBB13B31188005F9210 /* LCDatabasePool.m in Sources */,
 				CC47A011148581E9002CCDAB /* LCDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

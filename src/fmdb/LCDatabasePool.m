@@ -6,10 +6,10 @@
 //  Copyright 2011 Flying Meat Inc. All rights reserved.
 //
 
-#import "FMDatabasePool.h"
+#import "LCDatabasePool.h"
 #import "LCDatabase.h"
 
-@interface FMDatabasePool()
+@interface LCDatabasePool()
 
 - (void)pushDatabaseBackInPool:(LCDatabase*)db;
 - (LCDatabase*)db;
@@ -17,7 +17,7 @@
 @end
 
 
-@implementation FMDatabasePool
+@implementation LCDatabasePool
 @synthesize path=_path;
 @synthesize delegate=_delegate;
 @synthesize maximumNumberOfDatabasesToCreate=_maximumNumberOfDatabasesToCreate;

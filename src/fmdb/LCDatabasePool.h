@@ -29,7 +29,7 @@
  in the main.m file.
  */
 
-@interface FMDatabasePool : NSObject {
+@interface LCDatabasePool : NSObject {
     NSString            *_path;
     
     dispatch_queue_t    _lockQueue;
@@ -189,7 +189,7 @@
  
  */
 
-- (BOOL)databasePool:(FMDatabasePool*)pool shouldAddDatabaseToPool:(LCDatabase*)database;
+- (BOOL)databasePool:(LCDatabasePool*)pool shouldAddDatabaseToPool:(LCDatabase*)database;
 
 /** Tells the delegate that database was added to the pool.
  
@@ -198,7 +198,7 @@
 
  */
 
-- (void)databasePool:(FMDatabasePool*)pool didAddDatabase:(LCDatabase*)database;
+- (void)databasePool:(LCDatabasePool*)pool didAddDatabase:(LCDatabase*)database;
 
 @end
 

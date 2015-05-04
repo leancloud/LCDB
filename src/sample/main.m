@@ -1134,7 +1134,7 @@ void testStatementCaching() {
 
 void testPool(NSString *dbPath) {
     
-    FMDatabasePool *dbPool = [FMDatabasePool databasePoolWithPath:dbPath];
+    LCDatabasePool *dbPool = [LCDatabasePool databasePoolWithPath:dbPath];
     
     FMDBQuickCheck([dbPool countOfOpenDatabases] == 0);
     
@@ -1377,7 +1377,7 @@ void testPool(NSString *dbPath) {
         NSLog(@"Number of open databases after crazy gcd stuff: %ld", [dbPool countOfOpenDatabases]);
     }
     
-    FMDatabasePool *dbPool2 = [FMDatabasePool databasePoolWithPath:dbPath flags:SQLITE_OPEN_READONLY];
+    LCDatabasePool *dbPool2 = [LCDatabasePool databasePoolWithPath:dbPath flags:SQLITE_OPEN_READONLY];
     
     FMDBQuickCheck(dbPool2);
     {
