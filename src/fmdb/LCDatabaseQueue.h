@@ -61,7 +61,7 @@
 
  */
 
-@interface FMDatabaseQueue : NSObject {
+@interface LCDatabaseQueue : NSObject {
     NSString            *_path;
     dispatch_queue_t    _queue;
     LCDatabase          *_db;

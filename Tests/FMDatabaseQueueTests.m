@@ -7,11 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "FMDatabaseQueue.h"
+#import "LCDatabaseQueue.h"
 
 @interface FMDatabaseQueueTests : FMDBTempDBTests
 
-@property FMDatabaseQueue *queue;
+@property LCDatabaseQueue *queue;
 
 @end
 
@@ -32,7 +32,7 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     
-    self.queue = [FMDatabaseQueue databaseQueueWithPath:self.databasePath];
+    self.queue = [LCDatabaseQueue databaseQueueWithPath:self.databasePath];
 }
 
 - (void)tearDown
@@ -64,7 +64,7 @@
 
 - (void)testReadOnlyQueue
 {
-    FMDatabaseQueue *queue2 = [FMDatabaseQueue databaseQueueWithPath:self.databasePath flags:SQLITE_OPEN_READONLY];
+    LCDatabaseQueue *queue2 = [LCDatabaseQueue databaseQueueWithPath:self.databasePath flags:SQLITE_OPEN_READONLY];
     XCTAssertNotNil(queue2);
 
     {

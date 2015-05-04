@@ -6,7 +6,7 @@
 //  Copyright 2011 Flying Meat Inc. All rights reserved.
 //
 
-#import "FMDatabaseQueue.h"
+#import "LCDatabaseQueue.h"
 #import "LCDatabase.h"
 
 /*
@@ -24,14 +24,14 @@
  */
 static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey;
  
-@implementation FMDatabaseQueue
+@implementation LCDatabaseQueue
 
 @synthesize path = _path;
 @synthesize openFlags = _openFlags;
 
 + (instancetype)databaseQueueWithPath:(NSString*)aPath {
     
-    FMDatabaseQueue *q = [[self alloc] initWithPath:aPath];
+    LCDatabaseQueue *q = [[self alloc] initWithPath:aPath];
     
     FMDBAutorelease(q);
     
@@ -40,7 +40,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
 
 + (instancetype)databaseQueueWithPath:(NSString*)aPath flags:(int)openFlags {
     
-    FMDatabaseQueue *q = [[self alloc] initWithPath:aPath flags:openFlags];
+    LCDatabaseQueue *q = [[self alloc] initWithPath:aPath flags:openFlags];
     
     FMDBAutorelease(q);
     
@@ -139,7 +139,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
 - (void)inDatabase:(void (^)(LCDatabase *db))block {
     /* Get the currently executing queue (which should probably be nil, but in theory could be another DB queue
      * and then check it against self to make sure we're not about to deadlock. */
-    FMDatabaseQueue *currentSyncQueue = (__bridge id)dispatch_get_specific(kDispatchQueueSpecificKey);
+    LCDatabaseQueue *currentSyncQueue = (__bridge id)dispatch_get_specific(kDispatchQueueSpecificKey);
     assert(currentSyncQueue != self && "inDatabase: was called reentrantly on the same queue, which would lead to a deadlock");
     
     FMDBRetain(self);

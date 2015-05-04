@@ -861,7 +861,7 @@ int main (int argc, const char * argv[]) {
     
     
     
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    LCDatabaseQueue *queue = [LCDatabaseQueue databaseQueueWithPath:dbPath];
     
     FMDBQuickCheck(queue);
     
@@ -896,7 +896,7 @@ int main (int argc, const char * argv[]) {
         
     }
     
-    FMDatabaseQueue *queue2 = [FMDatabaseQueue databaseQueueWithPath:dbPath flags:SQLITE_OPEN_READONLY];
+    LCDatabaseQueue *queue2 = [LCDatabaseQueue databaseQueueWithPath:dbPath flags:SQLITE_OPEN_READONLY];
     
     FMDBQuickCheck(queue2);
     {
@@ -1501,7 +1501,7 @@ void FMDBReportABugFunction() {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager removeItemAtPath:dbPath error:nil];
     
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    LCDatabaseQueue *queue = [LCDatabaseQueue databaseQueueWithPath:dbPath];
     
     [queue inDatabase:^(LCDatabase *db) {
         
