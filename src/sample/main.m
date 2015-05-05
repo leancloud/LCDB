@@ -4,7 +4,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "FMDB.h"
+#import "LCDB.h"
 
 #define FMDBQuickCheck(SomeBool) { if (!(SomeBool)) { NSLog(@"Failure on line %d", __LINE__); abort(); } }
 
@@ -836,7 +836,7 @@ int main (int argc, const char * argv[]) {
     if ([db shouldCacheStatements]) {
         
         NSEnumerator *e = [[db cachedStatements] objectEnumerator];;
-        FMStatement *statement;
+        LCStatement *statement;
         
         while ((statement = [e nextObject])) {
             NSLog(@"%@", statement);
